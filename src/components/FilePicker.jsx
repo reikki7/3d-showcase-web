@@ -38,12 +38,18 @@ const FilePicker = ({ setFile, readFile }) => {
                 <label htmlFor='file-upload' className='filepicker-label'>
                     Upload File
                 </label>
-                <p className='mt-2 text-xs text-gray-500 truncate'>
+                <p className='mt-2 mb-1 text-xs text-gray-500 truncate'>
                     {imagePreview ? 'Image selected' : 'No file selected'}
                 </p>
             </div>
             {imagePreview && (
-                <img src={imagePreview} alt='File Preview' className='mb-3' />
+                <div className='image-preview-container'>
+                    <img
+                        src={imagePreview}
+                        alt='File Preview'
+                        className='image-preview'
+                    />
+                </div>
             )}
             <p className='-mb-1 text-xs text-center text-gray-500'>
                 Set uploaded image as

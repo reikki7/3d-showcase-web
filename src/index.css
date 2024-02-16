@@ -19,6 +19,33 @@ html {
   @apply relative w-full h-screen overflow-hidden;
 }
 
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  backdrop-filter: blur(10px);
+}
+
+.image-preview-container {
+  max-width: 100%;
+  overflow: hidden;
+  margin-bottom: 7px;
+}
+
+.image-preview {
+  width: 100%;
+  height: auto;
+}
+
 .home {
   @apply absolute z-10 flex flex-col items-start justify-start p-6 w-fit xl:h-full xl:justify-between xl:py-8 xl:px-36 sm:p-8 max-xl:gap-7;
 }

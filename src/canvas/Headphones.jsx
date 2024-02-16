@@ -36,7 +36,7 @@ const Headphones = (props) => {
                             scale={4.7}
                             map={fullTexture}
                         >
-                            <meshBasicMaterial
+                            <meshStandardMaterial
                                 map={fullTexture}
                                 polygonOffset
                                 polygonOffsetFactor={-1}
@@ -53,7 +53,7 @@ const Headphones = (props) => {
                                 scale={2.1}
                                 map={fullTexture}
                             >
-                                <meshBasicMaterial
+                                <meshStandardMaterial
                                     map={fullTexture}
                                     polygonOffset
                                     polygonOffsetFactor={-1}
@@ -65,7 +65,7 @@ const Headphones = (props) => {
                                 scale={2.1}
                                 map={fullTexture}
                             >
-                                <meshBasicMaterial
+                                <meshStandardMaterial
                                     map={fullTexture}
                                     polygonOffset
                                     polygonOffsetFactor={-1}

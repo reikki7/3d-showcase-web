@@ -1,11 +1,35 @@
-import React from 'react'
-import { Canvas } from '@react-three/fiber'
-import { Environment, Center } from '@react-three/drei'
+import React from 'react';
+import { Canvas } from '@react-three/fiber';
+import { Environment, Center } from '@react-three/drei';
+import Headphones from './Headphones';
+import Laptop from './Laptop';
+import Midi from './Midi';
+import CameraRig from './CameraRig';
+import { useSnapshot } from 'valtio';
+import state from '../store';
 
-import Headphones from './Headphones'
-import CameraRig from './CameraRig'
+const MemoizedHeadphones = React.memo(Headphones);
+const MemoizedLaptop = React.memo(Laptop);
+const MemoizedMidi = React.memo(Midi);
 
 const CanvasModel = () => {
+    const snap = useSnapshot(state);
+    let modelToRender = null;
+
+    switch (snap.choice) {
+        case 'headphones':
+            modelToRender = <MemoizedHeadphones />;
+            break;
+        case 'laptop':
+            modelToRender = <MemoizedLaptop />;
+            break;
+        case 'midi':
+            modelToRender = <MemoizedMidi />;
+            break;
+        default:
+            break;
+    }
+
     return (
         <Canvas
             shadows
@@ -18,11 +42,11 @@ const CanvasModel = () => {
 
             <CameraRig>
                 <Center>
-                    <Headphones />
+                    {modelToRender}
                 </Center>
             </CameraRig>
         </Canvas>
-    )
+    );
 }
 
-export default CanvasModel
+export default CanvasModel;
