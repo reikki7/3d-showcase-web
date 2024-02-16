@@ -50,7 +50,6 @@ const Headphones = (props) => {
                 </mesh>
                 <mesh geometry={nodes.keys.geometry} material={materials.keys} position={[0.021, 0.068, 0.062]} rotation={[0.755, 0.644, -0.176]} scale={[0.373, 0.032, 0.127]} />
                 <mesh geometry={nodes.keysBlack.geometry} material={materials.keysBlack} position={[0.191, 0.124, -0.191]} rotation={[0.755, 0.644, -0.176]} scale={0.00871} />
-                <mesh geometry={nodes.buttons.geometry} material={materials.buttons} position={[0.013, 0.023, 0.028]} rotation={[0.755, 0.644, -0.176]} scale={1.409} />
                 <mesh geometry={nodes.buttons2.geometry} material={materials.buttons2} position={[0.013, 0.023, 0.028]} rotation={[0.755, 0.644, -0.176]} scale={1.409} />
                 <mesh geometry={nodes.cube.geometry} material={materials.cube} position={[0.013, 0.023, 0.028]} rotation={[0.755, 0.644, -0.176]} scale={1.409} />
             </group>

@@ -51,12 +51,12 @@ const Laptop = (props) => {
     return (
         <group key={stateString}>
             <group {...props} dispose={null}>
-                <mesh geometry={nodes.screen.geometry} material={materials.screen} position={[0, -0.09, 0.048]} rotation={[1.942, 0.011, 2.224]} scale={0.154}>
+                <mesh geometry={nodes.screen.geometry} material={materials.screen} position={[0, -0.09, 0.048]} rotation={[1.942, 0.011, 2.224]} scale={0.154} >
                     {snap.isFullTexture && (
                         <>
                             <Decal
                                 position={[0, -1, -0.8]}
-                                rotation={[1.5, 0, 0]}
+                                rotation={[1.5, 0, 2.9]}
                                 scale={4.6}
                                 map={fullTexture}>
                                 <meshStandardMaterial
