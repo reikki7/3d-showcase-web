@@ -50,12 +50,35 @@ html {
   @apply absolute z-10 flex flex-col items-start justify-start p-6 w-fit xl:h-full xl:justify-between xl:py-8 xl:px-36 sm:p-8 max-xl:gap-7;
 }
 
+.home::-webkit-scrollbar {
+  display: none;
+}
+
+.home {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .home-content {
-  @apply flex flex-col justify-start flex-1 gap-10 xl:justify-center;
+  @apply flex flex-col flex-1 gap-10 xl:justify-center;
 }
 
 .head-text {
   @apply xl:text-[10rem] text-[6rem] xl:leading-[11rem] leading-[7rem] font-black text-black;
+}
+
+@media screen and (max-height: 768px) {
+  .head-text {
+    font-size: 3rem;
+    line-height: 6rem;
+  }
+}
+
+@media screen and (max-height: 720px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+  }
 }
 
 .download-btn {
@@ -68,14 +91,6 @@ html {
 
 .filtertabs-container {
   @apply absolute left-0 right-0 z-10 flex flex-wrap items-center justify-center w-full gap-4 bottom-5;
-}
-
-.aipicker-container {
-  @apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] rounded-md flex flex-col gap-4;
-}
-
-.aipicker-textarea {
-  @apply flex-1 w-full p-2 text-sm bg-transparent border border-gray-300 outline-none;
 }
 
 .filepicker-container {

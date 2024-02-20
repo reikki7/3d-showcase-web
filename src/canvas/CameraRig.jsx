@@ -1,9 +1,9 @@
-import React, { useRef } from 'react'
-import { useFrame } from '@react-three/fiber'
-import { easing } from 'maath'
-import { useSnapshot } from 'valtio'
+import React, { useRef } from 'react';
+import { useFrame } from '@react-three/fiber';
+import { easing } from 'maath';
+import { useSnapshot } from 'valtio';
 
-import state from '../store'
+import state from '../store';
 
 const CameraRig = ({ children }) => {
     const group = useRef();
@@ -24,18 +24,24 @@ const CameraRig = ({ children }) => {
 
         easing.damp3(state.camera.position, targetPosition, 0.25, delta);
 
+        const clampedPointerPosition = [
+            Math.max(-2, Math.min(2, state.pointer.y / 10)),
+            Math.max(-4, Math.min(4, -state.pointer.x / 5)),
+            0
+        ];
+
+
         easing.dampE(
             group.current.position,
-            [state.pointer.y / 10, -state.pointer.x / 5, 0],
+            clampedPointerPosition,
             0.25,
             delta
-        )
-    })
-
+        );
+    });
 
     return (
-        <group ref={(group)}>{children}</group>
-    )
-}
+        <group ref={group}>{children}</group>
+    );
+};
 
-export default CameraRig
+export default CameraRig;

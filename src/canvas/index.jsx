@@ -7,6 +7,7 @@ import Midi from './Midi';
 import CameraRig from './CameraRig';
 import { useSnapshot } from 'valtio';
 import state from '../store';
+import Dualshock from './Dualshock';
 
 const MemoizedHeadphones = React.memo(Headphones);
 const MemoizedLaptop = React.memo(Laptop);
@@ -25,6 +26,9 @@ const CanvasModel = () => {
             break;
         case 'midi':
             modelToRender = <MemoizedMidi />;
+            break;
+        case 'dualshock':
+            modelToRender = <Dualshock />;
             break;
         default:
             break;

@@ -5,7 +5,7 @@ import backgroundVideo from "./assets/web-background.mp4";
 
 function App() {
   return (
-    <main className="transition-all ease-in app">
+    <main className="overflow-auto transition-all ease-in app">
       <video autoPlay loop muted className="bg-video">
         <source src={backgroundVideo} type="video/mp4" />
         Your browser does not support the video tag.

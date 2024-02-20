@@ -10,22 +10,30 @@ import ClickMe from '../assets/click-me.png';
 import laptopIcon from '../assets/laptop-choice-icon.png';
 import headphonesIcon from '../assets/headphones-choice-icon.png';
 import midiIcon from '../assets/midi-choice-icon.png';
+import dualshockIcon from '../assets/dualshock-choice-icon.png';
 
 const Home = () => {
     const snap = useSnapshot(state);
 
+    const buttonsData = [
+        { choice: 'headphones', icon: headphonesIcon },
+        { choice: 'laptop', icon: laptopIcon },
+        { choice: 'midi', icon: midiIcon },
+        { choice: 'dualshock', icon: dualshockIcon }
+    ];
+
     return (
         <AnimatePresence>
             {snap.intro && (
-                <motion.section className='home' {...slideAnimation('left')}>
-                    <motion.header {...slideAnimation("down")}>
-                        <div className='flex'>
+                <motion.section className='overflow-auto home' {...slideAnimation('left')}>
+                    <motion.header className='' {...slideAnimation("down")}>
+                        <div className='flex -mb-7 md:mb-auto'>
                             <img src='/icon_me.png' alt='logo' className='object-contain w-10 h-auto rounded-full shadow-lg' />
                             <a href='https://github.com/reikki7/3d-showcase-web' target='_blank' className='m-2 font-black' >Made by KidKat</a>
                         </div>
                     </motion.header>
 
-                    <motion.div className="home-content" {...headContainerAnimation}>
+                    <motion.div className="items-center home-content md:items-start" {...headContainerAnimation}>
                         <motion.div {...headContentAnimation}>
                             <h1 className='head-text' style={{ textShadow: '0 0 45px rgba(255, 255, 255, 0.8)' }}>STYLE IT<br className="hidden xl:block" /> UP!</h1>
                         </motion.div>
@@ -48,29 +56,20 @@ const Home = () => {
                                 style={{ width: '105px', height: 'auto', marginTop: '10px' }}
                             />
                         </div>
-                        <p className='flex flex-col px-2 bg-white rounded-lg md:px-0 backdrop-blur-sm bg-opacity-70 size-fit md:bg-transparent'><strong>Select a gadget :</strong></p>
-                        <div className='flex w-64 h-auto gap-4 -mt-8 md:w-80'>
-                            <button
-                                className={`duration-150 transform shadow-xl rounded-xl hover:opacity-80 hover:scale-110 ${snap.choice === 'headphones' ? 'opacity-90 scale-105' : 'opacity-50'}`}
-                                onClick={() => {
-                                    state.choice = 'headphones';
-                                }}>
-                                <img src={headphonesIcon} alt="headphones" className='rounded-xl' />
-                            </button>
-                            <button
-                                className={`duration-150 transform shadow-xl rounded-xl hover:opacity-80 hover:scale-110 ${snap.choice === 'laptop' ? 'opacity-90 scale-105' : 'opacity-50'}`}
-                                onClick={() => {
-                                    state.choice = 'laptop';
-                                }}>
-                                <img src={laptopIcon} alt="laptop" className='rounded-xl' />
-                            </button>
-                            <button
-                                className={`duration-150 transform shadow-xl rounded-xl hover:opacity-80 hover:scale-110 ${snap.choice === 'midi' ? 'opacity-90 scale-105' : 'opacity-50'}`}
-                                onClick={() => {
-                                    state.choice = 'midi';
-                                }}>
-                                <img src={midiIcon} alt="midi" className='rounded-xl' />
-                            </button>
+                        <div className='flex flex-col items-center gap-4 -mt-8 md:items-start'>
+                            <p className='px-4 py-2 bg-white rounded-lg backdrop-blur-sm bg-opacity-70 md:px-0 md:bg-transparent'><strong>Select a gadget:</strong></p>
+                            <div className='grid w-48 grid-cols-2 gap-4 e md:w-64'>
+                                {buttonsData.map((button, index) => (
+                                    <button
+                                        key={index}
+                                        className={`duration-150 transform shadow-xl rounded-xl hover:opacity-80 hover:scale-110 ${snap.choice === button.choice ? 'opacity-90 scale-105' : 'opacity-50'}`}
+                                        onClick={() => {
+                                            state.choice = button.choice;
+                                        }}>
+                                        <img src={button.icon} alt={button.choice} className='rounded-xl' />
+                                    </button>
+                                ))}
+                            </div>
                         </div>
 
                     </motion.div>
